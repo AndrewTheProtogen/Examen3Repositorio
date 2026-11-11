@@ -1,5 +1,6 @@
 package co.edu.uniquindio;
 
-public class TipoMetal {
-
+public enum TipoMetal {
+    ALUMINIO,
+    ACERO
 }

@@ -1,4 +1,6 @@
 package co.edu.uniquindio;
 
-public class EstadoEntrega {
+public enum EstadoEntrega {
+    ABIERTA,
+    ACEPTADA
 }

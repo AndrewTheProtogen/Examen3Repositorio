@@ -1,5 +1,11 @@
 package co.edu.uniquindio;
 
-public class Aportante {
+public record Aportante(
+
+        String identificacion,
+        String nombre,
+        String correo
+
+) {
 
 }

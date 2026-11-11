@@ -1,4 +1,5 @@
 package co.edu.uniquindio;
 
-public class Etiquetable {
+public interface Etiquetable {
+    String generarEtiqueta();
 }
