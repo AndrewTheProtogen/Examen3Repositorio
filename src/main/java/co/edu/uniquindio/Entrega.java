@@ -1,13 +1,14 @@
 package co.edu.uniquindio;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Entrega {
     //Atributos
     private String codigo;
     private LocalDate fecha;
     private EstadoEntrega estado;
-    private Lote[] theListLote = new Lote[10];
+    private List<Lote> theListLote;
     private Comprobante comprobante;
 
     //Metodo constructor
@@ -16,6 +17,23 @@ public class Entrega {
         this.fecha = fecha;
         this.estado = estado;
         this.comprobante = comprobante;
+    }
+
+    //Metodos
+    public boolean agregarLote(Lote){
+
+    }
+    public boolean aceptar(){
+
+    }
+    public int calcularPesoTotal(){
+
+    }
+    public long calcularValorTotal(){
+
+    }
+    public List<String> obtenerEtiquetas(){
+
     }
 
     //Getters

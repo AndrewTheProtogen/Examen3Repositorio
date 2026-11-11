@@ -9,6 +9,13 @@ public class LotePapelCarton extends Lote {
         super(codigo, descripcion, pesoKg);
         this.clasificado = clasificado;
     }
+    //Metodo
+
+
+    @Override
+    public long calcularValor() {
+        return super.calcularValor();
+    }
 
     //Getters
     public boolean isClasificado() {

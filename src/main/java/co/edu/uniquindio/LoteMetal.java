@@ -11,7 +11,11 @@ public class LoteMetal extends Lote implements Etiquetable{
     }
     //Metodos
     public String generarEtiqueta(){
-        return "cambiar esto por codigo";
+
+    }
+    @Override
+    public long calcularValor() {
+        return super.calcularValor();
     }
 
     //Getters

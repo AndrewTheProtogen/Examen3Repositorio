@@ -12,6 +12,10 @@ public abstract class Lote {
         this.codigo = codigo;
         this.pesoKg = pesoKg;
     }
+    //Metodos
+    public long calcularValor(){
+
+    }
 
     //Getters
     public String getCodigo() {
