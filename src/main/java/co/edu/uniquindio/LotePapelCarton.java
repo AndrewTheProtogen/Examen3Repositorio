@@ -1,7 +1,7 @@
 package co.edu.uniquindio;
 
 public class LotePapelCarton extends Lote {
-    //Atributos
+    //Atributoss
     private boolean clasificado;
 
     //Metodo constructor

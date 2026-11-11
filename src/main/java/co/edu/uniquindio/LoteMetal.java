@@ -1,7 +1,7 @@
 package co.edu.uniquindio;
 
 public class LoteMetal extends Lote implements Etiquetable{
-    //Atributos
+    //Atributoss
     private TipoMetal tipoMetal;
 
     //Metodo constructor

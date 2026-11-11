@@ -1,7 +1,7 @@
 package co.edu.uniquindio;
 
 public record Comprobante(
-
+        //Atributos
         String codigoEntrega,
         String idAportante,
         int pesoTotal,

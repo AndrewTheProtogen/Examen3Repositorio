@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EcoRutaServicio {
-    //Atributos
+    //Atributoss
     private List<Aportante> theListAportantes;
     private List<Entrega> theListEntrega;
 

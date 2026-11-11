@@ -33,7 +33,6 @@ public class Entrega {
 
     }
     public List<String> obtenerEtiquetas(){
-
     }
 
     //Getters
