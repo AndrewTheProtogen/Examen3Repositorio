@@ -1,12 +1,17 @@
 package co.edu.uniquindio;
 
-public class LoteMetal {
+public class LoteMetal extends Lote implements Etiquetable{
     //Atributos
     private TipoMetal tipoMetal;
 
     //Metodo constructor
-    public LoteMetal(TipoMetal tipoMetal) {
+    public LoteMetal(TipoMetal tipoMetal, String codigo, String descripcion, int pesoKg) {
+        super(codigo, descripcion, pesoKg);
         this.tipoMetal = tipoMetal;
+    }
+    //Metodos
+    public String generarEtiqueta(){
+        return "cambiar esto por codigo";
     }
 
     //Getters

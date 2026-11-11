@@ -1,11 +1,12 @@
 package co.edu.uniquindio;
 
-public class LotePapelCarton {
+public class LotePapelCarton extends Lote {
     //Atributos
     private boolean clasificado;
 
     //Metodo constructor
-    public LotePapelCarton(boolean clasificado) {
+    public LotePapelCarton(boolean clasificado, String codigo, String descripcion, int pesoKg) {
+        super(codigo, descripcion, pesoKg);
         this.clasificado = clasificado;
     }
 

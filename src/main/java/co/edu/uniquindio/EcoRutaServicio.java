@@ -5,8 +5,7 @@ public class EcoRutaServicio {
     private Aportante[] theListAportantes = new Aportante[10];
     private Entrega[] theListEntrega = new Entrega[10];
 
-    //Metodos
-
+    //Metodo
 
     //Getters
     public Aportante[] getTheListAportantes() {
