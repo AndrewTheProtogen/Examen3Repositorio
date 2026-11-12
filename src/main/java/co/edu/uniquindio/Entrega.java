@@ -1,41 +1,88 @@
 package co.edu.uniquindio;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Entrega {
-    //Atributos
     private String codigo;
     private LocalDate fecha;
     private EstadoEntrega estado;
     private List<Lote> theListLote;
     private Comprobante comprobante;
+    private Aportante aportante;
 
-    //Metodo constructor
-    public Entrega(String codigo, LocalDate fecha, EstadoEntrega estado, Comprobante comprobante){
+    public Entrega(String codigo, LocalDate fecha, Aportante aportante) {
         this.codigo = codigo;
         this.fecha = fecha;
-        this.estado = estado;
-        this.comprobante = comprobante;
+        this.aportante = aportante;
+        this.estado = EstadoEntrega.ABIERTA;
+        this.theListLote = new ArrayList<>();
+        this.comprobante = null;
     }
 
-    //Metodos
-    public boolean agregarLote(Lote){
-
+    public boolean agregarLote(Lote lote) {
+        if (lote == null) {
+            return false;
+        }
+        if (estado != EstadoEntrega.ABIERTA) {
+            return false;
+        }
+        if (lote.getPesoKg() <= 0) {
+            return false;
+        }
+        if (lote.getCodigoLote().equals("")) {
+            return false;
+        }
+        for (Lote existente : theListLote) {
+            if (existente.getCodigoLote().equals(lote.getCodigoLote())) {
+                return false;   // codigo repetido
+            }
+        }
+        theListLote.add(lote);
+        return true;
     }
-    public boolean aceptar(){
 
+    public boolean aceptar() {
+        if (estado != EstadoEntrega.ABIERTA) {
+            return false;
+        }
+        if (theListLote.size() == 0) {
+            return false;
+        }
+        comprobante = new Comprobante(codigo, aportante.identificacion(),
+                calcularPesoTotal(), calcularValorTotal());
+        estado = EstadoEntrega.ACEPTADA;
+        return true;
     }
-    public int calcularPesoTotal(){
 
+    public int calcularPesoTotal() {
+        int total = 0;
+        for (Lote lote : theListLote) {
+            total = total + lote.getPesoKg();
+        }
+        return total;
     }
-    public long calcularValorTotal(){
 
-    }
-    public List<String> obtenerEtiquetas(){
+    public long calcularValorTotal() {
+        long total = 0;
+        for (Lote lote : theListLote) {
+            total = total + lote.calcularValor();
+        }
+        return total;
     }
 
-    //Getters
+    public List<String> obtenerEtiquetas() {
+        List<String> etiquetas = new ArrayList<>();
+        for (Lote lote : theListLote) {
+            if (lote instanceof Etiquetable) {
+                Etiquetable etiquetable = (Etiquetable) lote;
+                etiquetas.add(etiquetable.generarEtiqueta());
+            }
+        }
+        return etiquetas;
+    }
+
     public String getCodigo() {
         return codigo;
     }
@@ -45,11 +92,16 @@ public class Entrega {
     public EstadoEntrega getEstado() {
         return estado;
     }
-    public Lote[] getTheListLote() {
+    public List<Lote> getTheListLote() {
         return theListLote;
     }
+    public Comprobante getComprobante() {
+        return comprobante;
+    }
+    public Aportante getAportante() {
+        return aportante;
+    }
 
-    //Setters
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -59,7 +111,7 @@ public class Entrega {
     public void setEstado(EstadoEntrega estado) {
         this.estado = estado;
     }
-    public void setTheListLote(Lote[] theListLote) {
+    public void setTheListLote(List<Lote> theListLote) {
         this.theListLote = theListLote;
     }
 }
