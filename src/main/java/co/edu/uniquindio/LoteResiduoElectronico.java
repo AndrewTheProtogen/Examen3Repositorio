@@ -1,29 +1,30 @@
 package co.edu.uniquindio;
 
-public class LoteResiduoElectronico extends Lote implements Etiquetable{
-    //Atributoss
+public class LoteResiduoElectronico extends Lote implements Etiquetable {
+    private static final long PRECIO_KG = 1400;
+    private static final long ADICIONAL_EQUIPO = 800;
+
     private int equipoCompleto;
 
-    //Metodo constructor
     public LoteResiduoElectronico(int equipoCompleto, String codigo, String descripcion, int pesoKg) {
         super(codigo, descripcion, pesoKg);
         this.equipoCompleto = equipoCompleto;
     }
-    //Metodos
-    public String generarEtiqueta(){
 
+    @Override
+    public String generarEtiqueta() {
+        return "Lote " + getCodigoLote() + " | Equipos completos: " + equipoCompleto;
     }
+
     @Override
     public long calcularValor() {
-        return super.calcularValor();
+        return getPesoKg() * PRECIO_KG + equipoCompleto * ADICIONAL_EQUIPO;
     }
 
-    //Getters
     public int getEquipoCompleto() {
         return equipoCompleto;
     }
 
-    //Setters
     public void setEquipoCompleto(int equipoCompleto) {
         this.equipoCompleto = equipoCompleto;
     }

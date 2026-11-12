@@ -1,28 +1,30 @@
 package co.edu.uniquindio;
 
 public class LotePapelCarton extends Lote {
-    //Atributoss
+    //Constantes (precio por kilogramo)
+    private static final long PRECIO_KG = 500;
+    private static final long ADICIONAL_CLASIFICADO_KG = 100;
+
     private boolean clasificado;
 
-    //Metodo constructor
     public LotePapelCarton(boolean clasificado, String codigo, String descripcion, int pesoKg) {
         super(codigo, descripcion, pesoKg);
         this.clasificado = clasificado;
     }
-    //Metodo
-
 
     @Override
     public long calcularValor() {
-        return super.calcularValor();
+        long precio = PRECIO_KG;
+        if (clasificado) {
+            precio = precio + ADICIONAL_CLASIFICADO_KG;
+        }
+        return getPesoKg() * precio;
     }
 
-    //Getters
     public boolean isClasificado() {
         return clasificado;
     }
 
-    //Setters
     public void setClasificado(boolean clasificado) {
         this.clasificado = clasificado;
     }
