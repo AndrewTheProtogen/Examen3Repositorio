@@ -1,23 +1,18 @@
 package co.edu.uniquindio;
 
 public abstract class Lote {
-    //Atributos
     protected String codigoLote;
     protected String descripcion;
     protected int pesoKg;
 
-    //Metodo constructor
-    public Lote(String descripcion, String codigoLote, int pesoKg) {
-        this.descripcion = descripcion;
+    public Lote(String codigoLote, String descripcion, int pesoKg) {
         this.codigoLote = codigoLote;
+        this.descripcion = descripcion;
         this.pesoKg = pesoKg;
     }
-    //Metodos
-    public long calcularValor(){
 
-    }
+    public abstract long calcularValor();
 
-    //Getters
     public String getCodigoLote() {
         return codigoLote;
     }
@@ -28,7 +23,6 @@ public abstract class Lote {
         return pesoKg;
     }
 
-    //Setters
     public void setCodigoLote(String codigoLote) {
         this.codigoLote = codigoLote;
     }
